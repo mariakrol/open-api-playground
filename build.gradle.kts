@@ -42,6 +42,7 @@ openApiGenerate {
     apiPackage.set("com.makrol.teamcity.api.client.api")
     invokerPackage.set("com.makrol.teamcity.api.client.invoker")
     modelPackage.set("com.makrol.teamcity.api.client.model")
+    configOptions.set(mapOf("library" to "jvm-ktor"))
 }
 
 kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
