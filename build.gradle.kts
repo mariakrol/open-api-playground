@@ -13,10 +13,22 @@ repositories {
 }
 
 val junitVersion = "5.9.2"
+val ktorVersion = "2.2.3"
+val slf4jVersion = "2.0.6"
+
+//https://stackoverflow.com/questions/22319130/how-to-get-files-and-directories-name-using-gradle search file
 dependencies {
     //OpenApi client
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+    implementation("io.ktor:ktor-client-auth:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-xml:$ktorVersion")
+
+    implementation("org.slf4j:slf4j-simple:$slf4jVersion")
 
     //Tests organization
     testImplementation(kotlin("test"))
@@ -42,6 +54,7 @@ openApiGenerate {
     apiPackage.set("com.makrol.teamcity.api.client.api")
     invokerPackage.set("com.makrol.teamcity.api.client.invoker")
     modelPackage.set("com.makrol.teamcity.api.client.model")
+    configOptions.set(mapOf("library" to "multiplatform"))
 }
 
 kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
@@ -50,3 +63,5 @@ tasks.withType<KotlinCompile>().configureEach {
     dependsOn("openApiGenerate")
     kotlinOptions.jvmTarget = jvmVersion.toString()
 }
+
+//https://github.com/papsign/Ktor-OpenAPI-Generator try
