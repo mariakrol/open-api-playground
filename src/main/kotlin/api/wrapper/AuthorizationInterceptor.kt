@@ -12,7 +12,7 @@ class AuthorizationInterceptor : Interceptor {
     }
 
     private fun Request.signedRequest(): Request {
-        return newBuilder()
+        return this.newBuilder()
             .header("Authorization", "Bearer ${ConfigurationProvider.token}")
             .header("Content-Type", "application/xml")
             .build()
