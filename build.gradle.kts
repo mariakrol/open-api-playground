@@ -16,7 +16,7 @@ val junitVersion = "5.9.2"
 dependencies {
     //OpenApi client
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 
     //Tests organization
     testImplementation(kotlin("test"))
@@ -42,6 +42,7 @@ openApiGenerate {
     apiPackage.set("com.makrol.teamcity.api.client.api")
     invokerPackage.set("com.makrol.teamcity.api.client.invoker")
     modelPackage.set("com.makrol.teamcity.api.client.model")
+    configOptions.set(mapOf("serializationLibrary" to "gson"))
 }
 
 kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
