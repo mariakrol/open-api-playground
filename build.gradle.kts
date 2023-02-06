@@ -16,7 +16,8 @@ val junitVersion = "5.9.2"
 dependencies {
     //OpenApi client
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2") // remove if gson is used
+    // implementation("com.google.code.gson:gson:2.10.1") uncomment if serializationLibrary == gson
 
     //Tests organization
     testImplementation(kotlin("test"))
@@ -42,7 +43,8 @@ openApiGenerate {
     apiPackage.set("com.makrol.teamcity.api.client.api")
     invokerPackage.set("com.makrol.teamcity.api.client.invoker")
     modelPackage.set("com.makrol.teamcity.api.client.model")
-    configOptions.set(mapOf("serializationLibrary" to "gson"))
+    // configOptions.set(mapOf("serializationLibrary" to "gson")) uncomment to use gson
+    configOptions.set(mapOf("serializationLibrary" to "jackson")) //remove to use gson
 }
 
 kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
