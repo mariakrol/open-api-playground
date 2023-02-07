@@ -4,7 +4,7 @@ import com.makrol.teamcity.api.client.api.UserApi
 import com.makrol.teamcity.api.client.model.User
 
 class UserApiWrapper : BaseApiClient() {
-    private val userApi = UserApi(Companion.host, baseEngine, setupConfig)
+    private val userApi = UserApi(Companion.host, httpClientConfig = setupConfig)
 
     suspend fun createUser(): User {
         val newUser = User(

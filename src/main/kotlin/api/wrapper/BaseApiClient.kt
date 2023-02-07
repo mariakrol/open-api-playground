@@ -2,7 +2,6 @@ package api.wrapper
 
 import configuration.ConfigurationProvider
 import io.ktor.client.*
-import io.ktor.client.engine.okhttp.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.auth.*
 import io.ktor.client.plugins.auth.providers.*
@@ -13,9 +12,7 @@ import kotlin.math.abs
 import kotlin.random.Random
 
 abstract class BaseApiClient {
-    protected val baseEngine = OkHttpEngine(OkHttpConfig())
-
-    protected val setupConfig: (HttpClientConfig<*>) -> Unit = { c -> getClientConfig(c) }
+    protected val setupConfig: (HttpClientConfig<*>) -> Unit = { config -> getClientConfig(config) }
 
     fun String.appendRandomNumericPostfix(separator: String = "_"): String {
         return "${this}${separator}${abs(Random.nextInt())}"

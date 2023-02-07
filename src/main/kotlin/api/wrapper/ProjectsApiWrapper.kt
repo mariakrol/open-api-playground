@@ -5,7 +5,7 @@ import com.makrol.teamcity.api.client.model.NewProjectDescription
 import com.makrol.teamcity.api.client.model.Project
 
 class ProjectsApiWrapper : BaseApiClient() {
-    private val projectApi: ProjectApi = ProjectApi(Companion.host, baseEngine, setupConfig)
+    private val projectApi: ProjectApi = ProjectApi(Companion.host, httpClientConfig = setupConfig)
 
     suspend fun createProject(): Project {
         val newProject = NewProjectDescription(name = "simple_tc_project".appendRandomNumericPostfix())
