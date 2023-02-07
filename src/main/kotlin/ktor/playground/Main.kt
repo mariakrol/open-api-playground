@@ -1,6 +1,5 @@
 package ktor.playground
 
-import api.wrapper.ContentTypeInterceptor
 import com.makrol.teamcity.api.client.model.User
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
@@ -9,14 +8,12 @@ import io.ktor.client.plugins.auth.providers.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
 suspend fun main() {
     val client = HttpClient(OkHttp) {
-        engine {
-            addInterceptor(ContentTypeInterceptor())
-        }
         install(Auth) {
             bearer {
                 loadTokens {
@@ -35,17 +32,10 @@ suspend fun main() {
         }
     }
 
-    //val getUserResponse: HttpResponse = client.get("http://lebkuchenhaus:8111/app/rest/users?locator=admin")
-    //println(response.bodyAsText())
-
-
-    val user = User(
-        username = "usr1231231",
-        name = "name123123",
-        password = "qwrqwe"
-    )
-    val postUserResponse = client.post("https://localhost/app/rest/users") {
+    val user = User(username = "user#1", name = "user#1", password = "qwrqwe")
+    val postUserResponse = client.post("http://lebkuchenhaus:8111/app/rest/users") {
         setBody(user)
+        contentType(ContentType.Application.Json)
     }
     println(postUserResponse.bodyAsText())
 
