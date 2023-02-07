@@ -12,7 +12,7 @@ class ContentTypeInterceptor : Interceptor {
 
     private fun Request.signedRequest(): Request {
         return this.newBuilder()
-            .header("Content-Type", "application/xml")
+            .header("Content-Type", "application/json")
             .build()
     }
 }

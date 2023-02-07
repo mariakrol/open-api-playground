@@ -6,7 +6,7 @@ import io.ktor.client.engine.okhttp.*
 import io.ktor.client.plugins.auth.*
 import io.ktor.client.plugins.auth.providers.*
 import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.xml.*
+import io.ktor.serialization.kotlinx.json.*
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -37,7 +37,7 @@ abstract class BaseApiClient {
             }
 
         config.install(ContentNegotiation) {
-            xml()
+            json()
         }
     }
 
