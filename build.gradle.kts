@@ -16,7 +16,6 @@ val junitVersion = "5.9.2"
 val ktorVersion = "2.2.3"
 val slf4jVersion = "2.0.6"
 
-//https://stackoverflow.com/questions/22319130/how-to-get-files-and-directories-name-using-gradle search file
 dependencies {
     //OpenApi client
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
@@ -63,5 +62,3 @@ tasks.withType<KotlinCompile>().configureEach {
     dependsOn("openApiGenerate")
     kotlinOptions.jvmTarget = jvmVersion.toString()
 }
-
-//https://github.com/papsign/Ktor-OpenAPI-Generator try
