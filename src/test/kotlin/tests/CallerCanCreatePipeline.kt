@@ -17,7 +17,7 @@ class CallerCanCreatePipeline {
         project = runBlocking { projectApi.createProject() }
         Assertions.assertNotNull(project)
 
-        val createdProject = runBlocking { projectApi.getProject(project.parentProjectName!!) }
+        val createdProject = runBlocking { projectApi.getProject(project.name!!) }
         Assertions.assertEquals(project, createdProject)
     }
 
