@@ -66,5 +66,4 @@ kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
 
 tasks.withType<KotlinCompile>().configureEach {
     dependsOn("openApiGenerate")
-    kotlinOptions.jvmTarget = jvmVersion.toString()
 }
