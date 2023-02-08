@@ -2,9 +2,9 @@
 The main goal of this repo is to show how to generate a Kotlin client for a complex web API successfully.
 API from TeamCity was chosen to play with.
 You will find 3 separate branches:
-1) generate-client-with-jvm-okhttp4-success
-2) generate-client-with-jvm-ktor--FAIL
-3) generate-client-with-multiplatform--SUCCESS
+1) [generate-client-with-jvm-okhttp4-SUCCESS](https://github.com/mariakrol/open-api-playground/tree/generate-client-with-jvm-okhttp4--SUCCESS)
+2) [generate-client-with-jvm-ktor--FAIL](https://github.com/mariakrol/open-api-playground/tree/generate-client-with-jvm-ktor--FAIL)
+3) [generate-client-with-multiplatform--SUCCESS](https://github.com/mariakrol/open-api-playground/tree/generate-client-with-multiplatform--SUCCESS)
 
 Each branch shows a case of generating with a particular setting and the result of that experiment.
 
