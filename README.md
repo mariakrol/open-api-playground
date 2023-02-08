@@ -12,7 +12,7 @@ Each branch shows a case of generating with a particular setting and the result 
 Here you will find the appropriate set of settings that need to be set to generate a Kotlin client with an OkHttp client
 
 ## Branch generate-client-with-jvm-ktor--FAIL: OpenAPI generator produces invalid Kotlin code
-The case with Ktro for JVM platform failed, the generator produced an invalid Kotlin code in this case.
+The case with Ktor for JVM platform failed, the generator produced an invalid Kotlin code in this case.
 
 ## Branching generate-client-with-multiplatform--SUCCESS: Native Kotlin variant
 Here you can find everything you need to generate a Kotlin client using the OpenAPI generator and the Ktor library. 
