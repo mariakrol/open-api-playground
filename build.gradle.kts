@@ -27,12 +27,8 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
     implementation("io.ktor:ktor-client-auth:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-kotlinx-xml:$ktorVersion")
-
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")
 
-    implementation("io.ktor:ktor-serialization-gson:$ktorVersion")
-    implementation("com.michael-bull.kotlin-result:kotlin-result:1.1.16")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
 
     //Tests organization
