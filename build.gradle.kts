@@ -48,13 +48,16 @@ kotlin {
 }
 
 val generatedSourcesPath = "$buildDir/generated"
+val apiDescriptionFile = getFilePath(fileName = "teamCityRestApi-v2018.1-swagger2.0.json")
+val apiRootName = "com.makrol.teamcity.api.client"
+
 openApiGenerate {
     generatorName.set("kotlin")
-    inputSpec.set("$rootDir/src/main/resources/teamCityRestApi-v2018.1-swagger2.0.json")
+    inputSpec.set(apiDescriptionFile)
     outputDir.set(generatedSourcesPath)
-    apiPackage.set("com.makrol.teamcity.api.client.api")
-    invokerPackage.set("com.makrol.teamcity.api.client.invoker")
-    modelPackage.set("com.makrol.teamcity.api.client.model")
+    apiPackage.set("$apiRootName.api")
+    invokerPackage.set("$apiRootName.invoker")
+    modelPackage.set("$apiRootName.model")
     configOptions.set(mapOf("library" to "multiplatform"))
 }
 
@@ -62,4 +65,11 @@ kotlin.sourceSets["main"].kotlin.srcDir("$generatedSourcesPath/src/main/kotlin")
 
 tasks.withType<KotlinCompile>().configureEach {
     dependsOn("openApiGenerate")
+}
+
+fun getFilePath(baseDir: String = "$rootDir/src", fileName: String): String {
+    return fileTree(baseDir)
+        .filter { it.isFile }.files
+        .first { it.name == fileName }
+        .absolutePath
 }
