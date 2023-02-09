@@ -14,16 +14,16 @@ class CallerCanCreatePipeline {
     private lateinit var project: Project
 
     @Test
-    fun createSimpleTeamCityProject() {
-        project = runBlocking { projectApi.createProject() }
+    fun createSimpleTeamCityProject() = runBlocking {
+        project = projectApi.createProject()
         assertNotNull(project)
 
-        val createdProject = runBlocking { projectApi.getProject(project.name!!) }
+        val createdProject = projectApi.getProject(project.name!!)
         assertEquals(project, createdProject)
     }
 
     @AfterEach
-    fun deleteProject() {
-        runBlocking { projectApi.deleteProject(project) }
+    fun deleteProject() = runBlocking {
+        projectApi.deleteProject(project)
     }
 }

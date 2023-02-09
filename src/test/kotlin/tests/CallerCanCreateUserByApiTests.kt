@@ -14,18 +14,16 @@ class CallerCanCreateUserByApiTests {
     private lateinit var user: User
 
     @Test
-    fun createUser() {
-        user = runBlocking { userApi.createUser() }
+    fun createUser() = runBlocking {
+        user = userApi.createUser()
         assertNotNull(user)
 
-        val createdUser = runBlocking { userApi.getUser(user.username!!) }
+        val createdUser = userApi.getUser(user.username!!)
         assertEquals(createdUser, user)
     }
 
     @AfterEach
-    fun deleteUser() {
-        runBlocking {
-            userApi.deleteUser(user)
-        }
+    fun deleteUser() = runBlocking {
+        userApi.deleteUser(user)
     }
 }
