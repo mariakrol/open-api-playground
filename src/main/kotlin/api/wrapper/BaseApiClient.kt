@@ -1,10 +1,10 @@
 package api.wrapper
 
+import api.wrapper.interceptors.AuthorizationInterceptor
+import api.wrapper.interceptors.ContentTypeInterceptor
 import configuration.ConfigurationProvider
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import kotlin.math.abs
-import kotlin.random.Random
 
 open class BaseApiClient {
     fun String.appendRandomNumericPostfix(separator: String = "_"): String {
