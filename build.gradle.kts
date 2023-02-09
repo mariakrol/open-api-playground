@@ -15,12 +15,12 @@ repositories {
 val junitVersion = "5.9.2"
 
 dependencies {
-    //OpenAPI client
+    // OpenAPI client
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2") // remove if gson is used
     // implementation("com.google.code.gson:gson:2.10.1") uncomment if serializationLibrary == gson
 
-    //Tests organization
+    // Tests organization
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
