@@ -16,12 +16,12 @@ val junitVersion = "5.9.2"
 val ktorVersion = "2.2.3"
 
 dependencies {
-    //OpenAPI client
+    // OpenAPI client
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("com.google.code.gson:gson:2.10.1")
 
-    //Tests organization
+    // Tests organization
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
