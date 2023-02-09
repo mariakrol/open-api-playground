@@ -13,8 +13,9 @@ repositories {
 }
 
 val junitVersion = "5.9.2"
+
 dependencies {
-    //OpenApi client
+    //OpenAPI client
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2") // remove if gson is used
     // implementation("com.google.code.gson:gson:2.10.1") uncomment if serializationLibrary == gson
@@ -38,6 +39,7 @@ kotlin {
 val generatedSourcesPath = "$buildDir/generated"
 val apiDescriptionFile = getFilePath(fileName = "teamCityRestApi-v2018.1-swagger2.0.json")
 val apiRootName = "com.makrol.teamcity.api.client"
+
 openApiGenerate {
     generatorName.set("kotlin")
     inputSpec.set(apiDescriptionFile)
