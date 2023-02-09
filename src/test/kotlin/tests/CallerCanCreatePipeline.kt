@@ -4,7 +4,8 @@ import api.wrapper.ProjectsApiWrapper
 import com.makrol.teamcity.api.client.model.Project
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 
 class CallerCanCreatePipeline {
@@ -15,10 +16,10 @@ class CallerCanCreatePipeline {
     @Test
     fun createSimpleTeamCityProject() {
         project = runBlocking { projectApi.createProject() }
-        Assertions.assertNotNull(project)
+        assertNotNull(project)
 
         val createdProject = runBlocking { projectApi.getProject(project.name!!) }
-        Assertions.assertEquals(project, createdProject)
+        assertEquals(project, createdProject)
     }
 
     @AfterEach
