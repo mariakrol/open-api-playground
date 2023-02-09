@@ -25,7 +25,7 @@ abstract class BaseApiClient {
         config
             .install(Auth) {
                 bearer {
-                    loadTokens { BearerTokens(ConfigurationProvider.token, "") }
+                    loadTokens { BearerTokens(ConfigurationProvider.token, refreshToken = "") }
                 }
             }
 
