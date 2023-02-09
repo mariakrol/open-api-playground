@@ -4,9 +4,9 @@ import com.makrol.teamcity.api.client.api.UserApi
 import com.makrol.teamcity.api.client.model.User
 
 class UserApiWrapper : BaseApiClient() {
-    private val userApi: UserApi = UserApi(host, baseClient)
+    private val userApi: UserApi = UserApi(host)
 
-    fun createUser(): User {
+    suspend fun createUser(): User {
         val newUser = User(
             username = "userName".appendRandomNumericPostfix(),
             name = "name".appendRandomNumericPostfix(),
@@ -14,14 +14,14 @@ class UserApiWrapper : BaseApiClient() {
             password = "pass".appendRandomNumericPostfix()
         )
 
-        return userApi.addUser(body = newUser)
+        return userApi.addUser(body = newUser, fields = null).body()
     }
 
-    fun getUser(userName: String): User {
-        return userApi.getUser(userName)
+    suspend fun getUser(userName: String): User {
+        return userApi.getUser(userName, fields = null).body()
     }
 
-    fun deleteUser(user: User) {
+    suspend fun deleteUser(user: User) {
         userApi.deleteUser(user.username!!)
     }
 }

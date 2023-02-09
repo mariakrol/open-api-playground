@@ -2,6 +2,7 @@ package tests
 
 import api.wrapper.UserApiWrapper
 import com.makrol.teamcity.api.client.model.User
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -12,7 +13,7 @@ class CallerCanCreateUserByApiTests {
     private lateinit var user: User
 
     @Test
-    fun createUser() {
+    fun createUser() = runBlocking {
         user = userApi.createUser()
         assertNotNull(user)
 
@@ -21,7 +22,7 @@ class CallerCanCreateUserByApiTests {
     }
 
     @AfterEach
-    fun deleteUser() {
+    fun deleteUser() = runBlocking {
         userApi.deleteUser(user)
     }
 }

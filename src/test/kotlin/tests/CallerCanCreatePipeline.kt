@@ -2,6 +2,7 @@ package tests
 
 import api.wrapper.ProjectsApiWrapper
 import com.makrol.teamcity.api.client.model.Project
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -12,7 +13,7 @@ class CallerCanCreatePipeline {
     private lateinit var project: Project
 
     @Test
-    fun createSimpleTeamCityProject() {
+    fun createSimpleTeamCityProject() = runBlocking {
         project = projectApi.createProject()
         assertNotNull(project)
 
@@ -21,7 +22,7 @@ class CallerCanCreatePipeline {
     }
 
     @AfterEach
-    fun deleteProject() {
+    fun deleteProject() = runBlocking {
         projectApi.deleteProject(project)
     }
 }

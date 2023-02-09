@@ -1,7 +1,6 @@
 package api.wrapper
 
 import configuration.ConfigurationProvider
-import okhttp3.OkHttpClient
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -12,12 +11,5 @@ open class BaseApiClient {
 
     companion object {
         const val host = ConfigurationProvider.teamCityHost
-        val baseClient: OkHttpClient = getApiClient(AuthorizationInterceptor())
-
-        private fun getApiClient(authorizationInterceptor: AuthorizationInterceptor): OkHttpClient {
-            return OkHttpClient.Builder()
-                .addInterceptor(authorizationInterceptor)
-                .build()
-        }
     }
 }

@@ -5,19 +5,19 @@ import com.makrol.teamcity.api.client.model.NewProjectDescription
 import com.makrol.teamcity.api.client.model.Project
 
 class ProjectsApiWrapper : BaseApiClient() {
-    private val projectApi: ProjectApi = ProjectApi(host, baseClient)
+    private val projectApi: ProjectApi = ProjectApi(host)
 
-    fun createProject(): Project {
+    suspend fun createProject(): Project {
         val newProject = NewProjectDescription(name = "simple_tc_project".appendRandomNumericPostfix())
 
-        return projectApi.addProject(newProject)
+        return projectApi.addProject(newProject).body()
     }
 
-    fun getProject(projectName: String): Project {
-        return projectApi.getProject(projectName)
+    suspend fun getProject(projectName: String): Project {
+        return projectApi.getProject(projectName, fields = null).body()
     }
 
-    fun deleteProject(project: Project) {
+    suspend fun deleteProject(project: Project) {
         projectApi.deleteProject(project.id!!)
     }
 }
