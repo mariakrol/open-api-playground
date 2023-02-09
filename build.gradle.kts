@@ -13,10 +13,13 @@ repositories {
 }
 
 val junitVersion = "5.9.2"
+val ktorVersion = "2.2.3"
+
 dependencies {
     //OpenAPI client
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("com.google.code.gson:gson:2.10.1")
 
     //Tests organization
     testImplementation(kotlin("test"))
