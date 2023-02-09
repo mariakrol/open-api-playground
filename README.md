@@ -1,6 +1,6 @@
 # Generating a Kotlin client for a web API
-The main goal of this repo is to show how to generate a Kotlin client for a complex web API successfully.
-API from TeamCity was chosen to play with.
+The main goal of this repo is to show how to generate a Kotlin client for a complex web API.
+TeamCity API was chosen to play with.
 You will find 3 separate branches:
 1) [generate-client-with-jvm-okhttp4-SUCCESS](https://github.com/mariakrol/open-api-playground/tree/generate-client-with-jvm-okhttp4--SUCCESS)
 2) [generate-client-with-jvm-ktor--FAIL](https://github.com/mariakrol/open-api-playground/tree/generate-client-with-jvm-ktor--FAIL)
