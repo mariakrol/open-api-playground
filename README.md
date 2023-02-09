@@ -17,4 +17,4 @@ The case with Ktor for JVM platform failed, the generator produced an invalid Ko
 ## Branching generate-client-with-multiplatform--SUCCESS: Native Kotlin variant
 Here you can find everything you need to generate a Kotlin client using the OpenAPI generator and the Ktor library. 
 
-A detailed explanation is published: [TOBE FILLED].
+A detailed explanation is published ad [dev.to](https://dev.to/mariakrol/generate-kotlin-client-for-a-complex-web-api-1gff).
