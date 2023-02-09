@@ -28,7 +28,6 @@ abstract class BaseApiClient {
                     loadTokens { BearerTokens(ConfigurationProvider.token, refreshToken = "") }
                 }
             }
-
         config.install(ContentNegotiation) {
             json()
         }

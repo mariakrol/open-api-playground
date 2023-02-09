@@ -19,7 +19,7 @@ val ktorVersion = "2.2.3"
 val slf4jVersion = "2.0.6"
 
 dependencies {
-    //OpenApi client
+    //OpenAPI client
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
 
     implementation("io.ktor:ktor-client-core:$ktorVersion")
