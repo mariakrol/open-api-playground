@@ -19,19 +19,14 @@ val ktorVersion = "2.2.3"
 val slf4jVersion = "2.0.6"
 
 dependencies {
-    //OpenAPI client
+    // OpenAPI client
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
-
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-auth:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-
-    implementation("io.ktor:ktor-client-auth:$ktorVersion")
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
-
-    //Tests organization
+    // Tests organization
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
