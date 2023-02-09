@@ -7,10 +7,6 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
 open class BaseApiClient {
-    fun String.appendRandomNumericPostfix(separator: String = "_"): String {
-        return "${this}${separator}${abs(Random.nextInt())}"
-    }
-
     companion object {
         const val host = ConfigurationProvider.teamCityHost
         val baseClient: OkHttpClient = getApiClient(AuthorizationInterceptor(), ContentTypeInterceptor())

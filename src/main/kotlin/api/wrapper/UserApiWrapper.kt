@@ -2,6 +2,7 @@ package api.wrapper
 
 import com.makrol.teamcity.api.client.api.UserApi
 import com.makrol.teamcity.api.client.model.User
+import helpers.appendRandomNumericPostfix
 
 class UserApiWrapper : BaseApiClient() {
     private val userApi: UserApi = UserApi(host, baseClient)
